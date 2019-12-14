@@ -1,0 +1,42 @@
+.u-width-100 {
+  width: 100% !important;
+}
+
+.u-mt-20 {
+  margin-top: 20px !important;
+}
+
+.list-pet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-column-gap: 20px;
+  width: 80%;
+  margin: auto;
+}
+
+.list-pet .ui.card .image > img {
+  max-height: 200px;
+  max-width: 100%;
+  width: auto;
+}
+
+.list-pet .ui.card .image {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-pet .ui.card .react-tags {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.list-pet .ui.card:first-child {
+  margin: auto;
+}
+
+.list-pet .ui.card:last-child {
+  margin: auto;
+}
