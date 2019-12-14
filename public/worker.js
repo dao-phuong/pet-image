@@ -1,4 +1,4 @@
-var DATA_CACHE_NAME = 'pet-list-pwa5';
+var DATA_CACHE_NAME = 'pet-image';
 var urlsToCache = [
   '/index.html',
 ];
@@ -16,53 +16,19 @@ self.addEventListener('install', event => {
 });
 
 // Cache and return requests
-// self.addEventListener('fetch', event => {
-//   event.respondWith(
-//     caches.match(event.request)
-//       .then(function(response) {
-//         // Cache hit - return response
-//         if (response) {
-//           return response;
-//         }
-//         return fetch(event.request);
-//       }
-//     )
-//   );
-// });
-
-self.addEventListener('fetch', (evt) => {
-  console.log('[ServiceWorker] Fetch', evt.request.url);
-  // CODELAB: Add fetch event handler here.
-  if (evt.request.url.includes('/dog.ceo')) {
-  	console.log('[ServiceWorker] Fetch (data)', evt.request.url);
-  	evt.respondWith(
-  		caches.open(DATA_CACHE_NAME).then(cache => {
-  			return fetch(evt.request)
-  				.then(response => {
-  					// If the response was good, clone it and store it in the cache
-  					if (response.status === 200) {
-  						cache.put(evt.request.url, response.clone());
-  					}
-  					return response;
-  				})
-  				.catch(err => {
-  					// Network request failed, try to get it from cache
-  					return cache.match(evt.request);
-  				})
-		}));
-  	return;
-  }
-
-  evt.respondWith(
-  	caches.open(DATA_CACHE_NAME).then(cache => {
-  		return cache.match(evt.request)
-  			.then(response => {
-  				return response || fetch(evt.request);
-  			})
-  	})
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
-
 
 // Update a service worker
 self.addEventListener('activate', event => {
