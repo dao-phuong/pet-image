@@ -1,4 +1,4 @@
-var DATA_CACHE_NAME = 'pet-image';
+var DATA_CACHE_NAME = 'pet-image-v1';
 var urlsToCache = [
   '/pet-image/index.html'
 ];
