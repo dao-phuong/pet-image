@@ -1,4 +1,4 @@
-var CACHE_NAME = 'pet-list-pwa4';
+var DATA_CACHE_NAME = 'pet-list-pwa4';
 var urlsToCache = [
   '/index.html',
 ];
