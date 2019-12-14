@@ -7,7 +7,7 @@ var urlsToCache = [
 self.addEventListener('install', event => {
   // Perform install steps
   event.waitUntil(
-    caches.open(CACHE_NAME)
+    caches.open(DATA_CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache');
         return cache.addAll(urlsToCache);
@@ -54,7 +54,7 @@ self.addEventListener('fetch', (evt) => {
   }
 
   evt.respondWith(
-  	caches.open(CACHE_NAME).then(cache => {
+  	caches.open(DATA_CACHE_NAME).then(cache => {
   		return cache.match(evt.request)
   			.then(response => {
   				return response || fetch(evt.request);
