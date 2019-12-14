@@ -27,7 +27,7 @@
 			"sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/pet-image/index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

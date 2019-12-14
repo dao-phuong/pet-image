@@ -1,6 +1,6 @@
-var DATA_CACHE_NAME = 'pet-image';
+var DATA_CACHE_NAME = 'pet-image-v1';
 var urlsToCache = [
-  '/index.html',
+  '/pet-image/index.html'
 ];
 
 // Install a service worker
